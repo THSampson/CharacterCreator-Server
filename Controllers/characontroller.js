@@ -41,5 +41,3 @@ router.delete('/:id', validateSession, function(req, res){
 })
 
 module.exports = router;
-
-//adding Gurpreet branch
