@@ -23,7 +23,7 @@ router.get('/', validateSession, (req, res) => {
             {ownerID: userid}})
     .then(chara => res.status(200).json(chara))
     .catch(err => res.status(500).json({error: err}))
-})
+    })
 
 router.put('/:id',validateSession, function (req, res){
     Character.update(
