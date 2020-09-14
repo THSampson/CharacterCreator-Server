@@ -4,7 +4,7 @@ const router = express.Router();
 const Character = require('../db').import('../Models/character');
 
 router.post('/', validateSession, (req, res) => {
-    const charaFromRequest = {
+       const charaFromRequest = {
         name: req.body.name,
         species: req.body.species,
         ageInYears: req.body.age,

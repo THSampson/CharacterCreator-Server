@@ -9,11 +9,10 @@ let user = require('./Controllers/usercontroller');
 sequelize.sync();
 app.use(require('./Middleware/headers'))
 
-
 app.use(express.json());
 app.use('/user', user);
 
-app.use(require('./Middleware/validateSession'))
+// app.use(require('./Middleware/validateSession'))
 app.use('/chara', chara);
 
 
