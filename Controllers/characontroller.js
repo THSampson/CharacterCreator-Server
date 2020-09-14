@@ -1,3 +1,4 @@
+const { json } = require('express');
 const express = require('express');
 const validateSession = require('../Middleware/validateSession');
 const router = express.Router();
@@ -28,7 +29,7 @@ router.put('/:id',validateSession, function (req, res){
             {id: req.params.id}
         }
     )
-    .then(() => res.status(200).json({message: "Character updated."}))
+    .then((chara) => res.json({chara: chara}))
     .catch(err => res.status(500).json({error: err}))
 });
 
