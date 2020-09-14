@@ -18,6 +18,6 @@ app.use('/chara', chara);
 
 
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log('App is listing on port 3000');
 })
