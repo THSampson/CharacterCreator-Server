@@ -16,8 +16,11 @@ router.post('/', validateSession, (req, res) => {
     .catch(err => res.status(500).json({error: err}))
 })
 
-router.get('/', (req, res) => {
-    Character.findAll()
+router.get('/', validateSession, (req, res) => {
+    let userid = req.user.id
+    Character.findAll({
+       where: 
+            {ownerID: userid}})
     .then(chara => res.status(200).json(chara))
     .catch(err => res.status(500).json({error: err}))
 })
