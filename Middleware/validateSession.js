@@ -2,18 +2,18 @@ const jwt = require('jsonwebtoken');
 const User = require('../db').import('../Models/user');
 
 const validateSession = (req, res, next) => {
-    const token = req.headers.authorization;
-    console.log('token', token);
-    if(!token) {
+    const sessionToken = req.headers.authorization;
+    console.log('token', sessionToken);
+    if(!sessionToken) {
         return res.status(403).send({auth: false, message: "No token provided."})
     } else {
-        jwt.verify(token, process.env.JWT_SECRET, (err, decodeToken) => {
-            if(!err && decodeToken) {
-                User.findOne({where: {id: decodeToken.id}})
+        jwt.verify(sessionToken, process.env.JWT_SECRET, (err, decoded) => {
+            if(!err && decoded) {
+                User.findOne({where: {id: decoded.id}})
                 .then(user => {
                     if(!user) throw "err";
                     req.user = user;
-                    return next();
+                    next();
                 })
                 .catch(err => next(err))
             } else {
