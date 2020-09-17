@@ -21,7 +21,7 @@
 <img src= "./asset/characterDelete.png" width = 80%>
 
 #### 8. User Database Table
-<img src= "./asset/userDbTable.png" width = 80%>
+<img src= "./asset/userDBTable.png" width = 80%>
 
 #### 9. Character Database Table
 <img src= "./asset/characterDBTable.png" width = 80%>
