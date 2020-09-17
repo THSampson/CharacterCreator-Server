@@ -25,7 +25,6 @@ router.get('/', validateSession, (req, res) => {
     .catch(err => res.status(500).json({error: err}))
     })
 
-
 router.put('/:id',validateSession, function (req, res){
     Character.update(
         req.body, {where: 
